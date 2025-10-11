@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motorizado Lab - Portal Central 🧪</title>
+    <style>
+        /* Paleta: Negro (#333), Amarillo de Seguridad (#FFC107), Gris Claro (#F4F4F9) */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px 10px;
+            background-color: #f4f4f9;
+            text-align: center;
+        }
+        #container {
+            max-width: 900px;
+            margin: auto;
+        }
+        h1 {
+            color: #333;
+            font-size: 2.2em;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            border-bottom: 4px solid #FFC107;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        p {
+            color: #555;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        
+        /* Grid de Tarjetas */
+        #project-grid {
+            display: grid;
+            grid-template-columns: 1fr; 
+            gap: 20px;
+            padding: 10px;
+        }
+
+        .project-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            padding: 25px;
+            text-align: left;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-decoration: none; 
+            color: inherit; 
+            display: block;
+            border-left: 8px solid #333; 
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px); 
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border-left-color: #FFC107; 
+        }
+
+        .project-card h2 {
+            margin-top: 0;
+            color: #333;
+            font-size: 1.5em;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        .project-card p {
+            color: #666;
+            font-size: 1em;
+            margin-bottom: 0;
+            text-align: left;
+        }
+        
+        .project-card .icon {
+            float: right;
+            font-size: 2em;
+            color: #FFC107;
+        }
+
+        /* Colores específicos para tipos de enlaces */
+        .project-card.ruta { border-left-color: #1a4f78; } 
+        .project-card.lab { border-left-color: #28a745; } 
+        .project-card.tools { border-left-color: #FFC107; } 
+
+        /* Media Query para pantallas más grandes */
+        @media (min-width: 600px) {
+            #project-grid {
+                grid-template-columns: repeat(2, 1fr); 
+            }
+            h1 {
+                font-size: 3em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <h1>Portal Motorizado Lab</h1>
+        <p>Selecciona la herramienta que necesitas para tu ruta:</p>
+
+        <div id="project-grid">
+            
+            <a href="https://rmns82839-rgb.github.io/ruta_facil1.2/" class="project-card ruta" target="_blank">
+                <span class="icon">🏍️</span>
+                <h2>RUTA FÁCIL 1.2 (App Principal)</h2>
+                <p>Carga y visualiza las solicitudes de toma de muestras agrupadas por paciente y compañía.</p>
+            </a>
+
+            <a href="https://rmns82839-rgb.github.io/examenes/" class="project-card lab" target="_blank">
+                <span class="icon">🧪</span>
+                <h2>Examenes De Laboratorio</h2>
+                <p>Con una referencia interactiva para identificar rápidamente el tubo o tipo de muestra requerido.</p>
+            </a>
+            
+            <a href="https://rmns82839-rgb.github.io/exportador_de_datos_de_exel/" class="project-card tools" target="_blank">
+                <span class="icon">📈</span>
+                <h2>Exportador de Datos Excel</h2>
+                <p>Herramienta para exportar y gestionar datos desde archivos Excel.</p>
+            </a>
+
+            <a href="https://rmns82839-rgb.github.io/convertidor_xlsl_a_csv2/" class="project-card tools" target="_blank">
+                <span class="icon">🔄</span>
+                <h2>Convertidor XLS/XLSX a CSV</h2>
+                <p>Herramienta esencial para preparar tus archivos de ruta, transformando Excel a formato CSV.</p>
+            </a>
+
+            
+        </div>
+        <br>
+        <p style="font-size: 0.8em; color: #888;">*Todos los enlaces a tus proyectos se abren en una nueva pestaña.</p>
+    </div>
+
+</body>
+</html>
