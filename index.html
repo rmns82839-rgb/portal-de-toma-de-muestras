@@ -25,7 +25,7 @@
         }
         
         #container {
-            max-width: 950px; /* Un poco más de espacio */
+            max-width: 950px;
             margin: auto;
         }
 
@@ -52,36 +52,46 @@
         /* Grid de Tarjetas Modernizado */
         #project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Mejor adaptación en móviles */
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 25px;
             padding: 10px;
         }
 
-        /* Estilo Base de Tarjeta */
+        /* Estilo Base de Tarjeta con Efectos Modernos */
         .project-card {
             background-color: #ffffff;
-            border-radius: 15px; /* Bordes más suaves */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+            border-radius: 15px;
+            /* Sombra inicial más marcada para el efecto de "levantamiento" */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); 
             padding: 25px;
             text-align: left;
-            transition: 
-                transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
-                box-shadow 0.3s ease,
-                background-color 0.3s ease;
+            /* Transición suave y rápida para todos los efectos */
+            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
             text-decoration: none;
             color: inherit;
-            display: flex; /* Usamos flexbox para el contenido */
+            display: flex;
             flex-direction: column;
             justify-content: space-between;
             min-height: 150px;
-            border-left: 8px solid var(--color-primary); /* Línea lateral inicial */
+            border-left: 8px solid var(--color-primary); 
         }
 
-        /* Efecto Hover Moderno */
+        /* EFECTO HOVER LLAMATIVO */
         .project-card:hover {
-            transform: translateY(-8px); /* Sube un poco más */
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
-            background-color: #fcfcfc; /* Ligero cambio de fondo */
+            /* 1. Traslado vertical (Elevación) */
+            transform: translateY(-10px); 
+            
+            /* 2. Sombra de Proyección 3D */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), /* Sombra principal más fuerte */
+                        0 0 0 3px rgba(255, 193, 7, 0.5); /* Anillo de luz sutil (del color secundario) */
+
+            /* 3. Ligero cambio de fondo */
+            background-color: #fcfcfc; 
+        }
+
+        /* Efecto de Icono en Hover (Girar y Cambiar Color) */
+        .project-card:hover .icon i {
+            transform: rotate(5deg) scale(1.05);
         }
 
         /* Contenido de Tarjeta */
@@ -98,7 +108,7 @@
             font-size: 1.4em;
             font-weight: 700;
             line-height: 1.2;
-            padding-right: 15px; /* Espacio para que no choque con el icono */
+            padding-right: 15px;
         }
 
         .project-card p {
@@ -111,9 +121,12 @@
         
         /* Estilo de Icono */
         .project-card .icon {
-            font-size: 2.5em; /* Icono más grande */
+            font-size: 2.5em;
             line-height: 1;
-            /* El color se definirá en las clases específicas para cada tipo de tarjeta */
+        }
+        /* Transición para el icono */
+        .project-card .icon i {
+            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         /* Colores específicos para tipos de enlaces (Línea lateral y Icono) */
@@ -125,11 +138,6 @@
 
         .project-card.tools { border-left-color: var(--color-tools); }
         .project-card.tools .icon { color: var(--color-tools); }
-
-        /* Iconos de Font Awesome */
-        .fa-solid {
-            transition: color 0.3s ease; /* Transición para el color del icono */
-        }
 
         /* Mensaje de Enlace Pequeño */
         .footer-note {
