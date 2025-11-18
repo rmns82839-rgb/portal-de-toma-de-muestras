@@ -143,10 +143,70 @@
     </div>
 </a>
 
+<p style="font-size: 0.8em; color: #888;">*Todos los enlaces a tus proyectos se abren en una nueva pestaña.</p>
+
+<style>
+    /* Estilos generales para las tarjetas (si no los tienes ya) */
+    .card-link {
+        text-decoration: none; /* Quita el subrayado del enlace */
+        color: inherit; /* Hereda el color del texto */
+        display: block; /* Para que ocupe todo el ancho disponible */
+        margin-bottom: 20px; /* Espacio debajo del botón */
+    }
+
+    .card {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        text-align: center; /* Centrar contenido */
+        transition: transform 0.2s, box-shadow 0.2s;
+        height: 100%; /* Asegura que todas las tarjetas tengan la misma altura si están en un grid */
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Centrar verticalmente el contenido */
+        align-items: center; /* Centrar horizontalmente el contenido */
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-icon {
+        font-size: 3em; /* Tamaño del icono */
+        margin-bottom: 10px;
+        color: #ff9800; /* Color naranja, similar al de tus tarjetas */
+    }
+
+    .card-title {
+        font-size: 1.2em;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #333;
+    }
+
+    .card-description {
+        font-size: 0.9em;
+        color: #666;
+    }
+
+    /* Estilos específicos para la tarjeta-botón */
+    .button-card {
+        background-color: #f0f0f0; /* Un fondo ligeramente diferente para que se distinga como botón */
+        border: 1px solid #ddd;
+    }
+
+    .button-card .card-icon {
+        color: #007bff; /* Un color diferente para el icono del botón, por ejemplo, azul */
+    }
+</style>
+
 </div>
 
 </body>
 
 </html>
+
 
 
