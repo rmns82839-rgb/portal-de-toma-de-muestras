@@ -6,144 +6,184 @@
     <title>Motorizado Lab - Portal Central 🧪</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* Paleta: Negro (#333), Amarillo de Seguridad (#FFC107), Gris Claro (#F4F4F9) */
+        /* Paleta inspirada en la imagen: tonos oscuros y gradientes vibrantes */
         :root {
-            --color-primary: #333;
-            --color-secondary: #FFC107;
-            --color-background: #f4f4f9;
-            --color-ruta: #1a4f78;
-            --color-lab: #28a745;
-            --color-tools: #FFC107;
+            --color-dark-bg: #1A1A2E; /* Fondo principal muy oscuro */
+            --color-card-bg: #2C2C40; /* Fondo de tarjeta un poco más claro */
+            --color-text-light: #E0E0E0; /* Texto claro */
+            --color-text-dim: #A0A0B0;  /* Texto secundario atenuado */
+            --color-accent-gradient-1: linear-gradient(45deg, #FF6B6B, #FFD166); /* Rojo-Naranja */
+            --color-accent-gradient-2: linear-gradient(45deg, #4ECDC4, #5bc0de); /* Turquesa-Azul */
+            --color-accent-gradient-3: linear-gradient(45deg, #8A2BE2, #EE82EE); /* Violeta-Púrpura */
+            --color-accent-gradient-4: linear-gradient(45deg, #30CFD0, #330867); /* Cyan-Índigo */
         }
 
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Inter', sans-serif; /* Usamos una fuente moderna si está disponible */
             margin: 0;
-            padding: 20px 10px;
-            background-color: var(--color-background);
+            padding: 40px 20px;
+            background: var(--color-dark-bg); /* Fondo oscuro */
             text-align: center;
+            color: var(--color-text-light);
+            min-height: 100vh; /* Asegura que el fondo cubra toda la altura */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
         
         #container {
-            max-width: 950px;
+            max-width: 1000px; /* Un poco más ancho para el nuevo diseño */
+            width: 100%;
             margin: auto;
         }
 
         /* Título Principal */
         h1 {
-            color: var(--color-primary);
-            font-size: 2.5em;
+            color: var(--color-text-light);
+            font-size: 3em;
             text-transform: uppercase;
-            margin-bottom: 5px;
-            border-bottom: 5px solid var(--color-secondary);
-            padding-bottom: 10px;
+            margin-bottom: 10px;
+            padding-bottom: 15px;
             display: inline-block;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             font-weight: 900;
+            position: relative;
+        }
+
+        h1::after { /* Línea inferior del título con gradiente */
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 5px;
+            background: var(--color-accent-gradient-1); /* Gradiente para la línea */
+            border-radius: 5px;
         }
         
         #container > p {
-            color: #555;
-            margin-bottom: 40px;
-            font-size: 1.1em;
+            color: var(--color-text-dim);
+            margin-bottom: 50px;
+            font-size: 1.2em;
             font-weight: 300;
         }
         
-        /* Grid de Tarjetas Modernizado */
+        /* Grid de Tarjetas */
         #project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adaptativo */
+            gap: 30px; /* Mayor separación */
             padding: 10px;
         }
 
         /* Estilo Base de Tarjeta con Efectos Modernos */
         .project-card {
-            background-color: #ffffff;
-            border-radius: 15px;
-            /* Sombra inicial más marcada para el efecto de "levantamiento" */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); 
-            padding: 25px;
+            background-color: var(--color-card-bg);
+            border-radius: 18px; /* Bordes más redondeados */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* Sombra más oscura para el fondo oscuro */
+            padding: 30px;
             text-align: left;
-            /* Transición suave y rápida para todos los efectos */
-            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+            transition: 
+                transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                box-shadow 0.4s ease,
+                background-color 0.4s ease;
             text-decoration: none;
-            color: inherit;
+            color: var(--color-text-light);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            min-height: 150px;
-            border-left: 8px solid var(--color-primary); 
+            min-height: 180px; /* Mayor altura */
+            position: relative;
+            overflow: hidden; /* Para que el pseudo-elemento no se salga */
+        }
+
+        /* Pseudo-elemento para el borde con gradiente */
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 8px; /* Ancho de la línea */
+            height: 100%;
+            background: var(--color-accent-gradient-3); /* Gradiente por defecto */
+            border-radius: 18px 0 0 18px;
+            transition: background 0.4s ease;
         }
 
         /* EFECTO HOVER LLAMATIVO */
         .project-card:hover {
-            /* 1. Traslado vertical (Elevación) */
-            transform: translateY(-10px); 
-            
-            /* 2. Sombra de Proyección 3D */
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), /* Sombra principal más fuerte */
-                        0 0 0 3px rgba(255, 193, 7, 0.5); /* Anillo de luz sutil (del color secundario) */
-
-            /* 3. Ligero cambio de fondo */
-            background-color: #fcfcfc; 
+            transform: translateY(-15px); /* Sube más */
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), /* Sombra más pronunciada */
+                        0 0 0 4px rgba(255, 255, 255, 0.1); /* Borde sutil de luz */
+            background-color: #383850; /* Un poco más claro en hover */
         }
-
+        
         /* Efecto de Icono en Hover (Girar y Cambiar Color) */
         .project-card:hover .icon i {
-            transform: rotate(5deg) scale(1.05);
+            transform: rotate(7deg) scale(1.1); /* Más giro y escala */
+            filter: brightness(1.2); /* Más brillante */
         }
 
         /* Contenido de Tarjeta */
         .card-header {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 10px;
+            align-items: center; /* Centrar verticalmente título e icono */
+            margin-bottom: 15px;
         }
 
         .project-card h2 {
             margin-top: 0;
-            color: var(--color-primary);
-            font-size: 1.4em;
-            font-weight: 700;
+            color: var(--color-text-light);
+            font-size: 1.6em; /* Título más grande */
+            font-weight: 800;
             line-height: 1.2;
-            padding-right: 15px;
+            padding-right: 20px;
         }
 
         .project-card p {
-            color: #666;
-            font-size: 0.95em;
+            color: var(--color-text-dim);
+            font-size: 1em; /* Descripción ligeramente más grande */
             margin-bottom: 0;
             text-align: left;
-            line-height: 1.5;
+            line-height: 1.6;
         }
         
         /* Estilo de Icono */
         .project-card .icon {
-            font-size: 2.5em;
+            font-size: 3.5em; /* Icono mucho más grande */
             line-height: 1;
+            /* El color del icono se establecerá mediante un gradiente */
         }
-        /* Transición para el icono */
         .project-card .icon i {
-            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
-        /* Colores específicos para tipos de enlaces (Línea lateral y Icono) */
-        .project-card.ruta { border-left-color: var(--color-ruta); }
-        .project-card.ruta .icon { color: var(--color-ruta); }
+        /* Colores específicos para tipos de enlaces (Línea lateral y Icono con Gradiente) */
+        .project-card.ruta::before { background: var(--color-accent-gradient-2); }
+        .project-card.ruta .icon i { background-image: var(--color-accent-gradient-2); }
 
-        .project-card.lab { border-left-color: var(--color-lab); }
-        .project-card.lab .icon { color: var(--color-lab); }
+        .project-card.organizador::before { background: var(--color-accent-gradient-4); } /* Nuevo para organizador */
+        .project-card.organizador .icon i { background-image: var(--color-accent-gradient-4); }
 
-        .project-card.tools { border-left-color: var(--color-tools); }
-        .project-card.tools .icon { color: var(--color-tools); }
+        .project-card.lab::before { background: var(--color-accent-gradient-1); }
+        .project-card.lab .icon i { background-image: var(--color-accent-gradient-1); }
+
+        .project-card.tools::before { background: var(--color-accent-gradient-3); }
+        .project-card.tools .icon i { background-image: var(--color-accent-gradient-3); }
+
 
         /* Mensaje de Enlace Pequeño */
         .footer-note {
-            font-size: 0.8em; 
-            color: #888; 
-            margin-top: 20px;
+            font-size: 0.9em; 
+            color: var(--color-text-dim); 
+            margin-top: 40px;
             text-align: center;
             display: block;
         }
@@ -151,7 +191,7 @@
         /* Media Query para tabletas y escritorios */
         @media (min-width: 768px) {
             h1 {
-                font-size: 3em;
+                font-size: 4em;
             }
         }
     </style>
@@ -172,7 +212,7 @@
                 <p>Carga y visualiza las solicitudes de toma de muestras agrupadas por paciente y compañía.</p>
             </a>
 
-            <a href="https://rmns82839-rgb.github.io/organizador-de-ruta/" target="_blank" class="project-card ruta">
+            <a href="https://rmns82839-rgb.github.io/organizador-de-ruta/" target="_blank" class="project-card organizador">
                 <div class="card-header">
                     <h2>Organizador de Ruta</h2>
                     <span class="icon"><i class="fa-solid fa-compass"></i></span>
