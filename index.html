@@ -10,7 +10,7 @@
         /* Paleta inspirada en la imagen: tonos oscuros y gradientes vibrantes */
         :root {
             --color-dark-bg: #1A1A2E; /* Fondo principal muy oscuro */
-            --color-card-bg: #2C2C40; /* Fondo de tarjeta un poco más claro */
+            --color-card-bg: rgba(44, 44, 64, 0.9); /* Fondo de tarjeta con transparencia para ver la imagen de fondo */
             --color-text-light: #E0E0E0; /* Texto claro */
             --color-text-dim: #A0A0B0;  /* Texto secundario atenuado */
             --color-accent-gradient-1: linear-gradient(45deg, #FF6B6B, #FFD166); /* Rojo-Naranja */
@@ -23,35 +23,35 @@
         body {
             font-family: 'Inter', sans-serif;
             margin: 0;
-            padding: 0; /* Quitamos el padding global para el nuevo diseño */
+            padding: 0;
             background: var(--color-dark-bg);
             color: var(--color-text-light);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start; /* Alineamos arriba para dar espacio al banner */
-            overflow-x: hidden; /* Evita desbordamiento horizontal */
+            justify-content: flex-start;
+            overflow-x: hidden;
         }
         
         /* Contenedor principal para el contenido */
         #main-content-wrapper {
-            max-width: 1200px; /* Ancho máximo para el contenido principal */
+            max-width: 1200px;
             width: 100%;
             margin: 0 auto;
             padding: 20px;
             box-sizing: border-box;
             position: relative;
-            z-index: 10; /* Asegura que el contenido esté sobre fondos */
+            z-index: 10;
         }
 
         /* Banner Principal con la imagen de la moto */
         .hero-banner {
             width: 100%;
-            height: 450px; /* Altura del banner */
+            height: 450px;
             background-image: url('https://www.shutterstock.com/shutterstock/photos/2570723945/display_1500/stock-vector-motorcycle-on-road-with-headlight-racing-at-full-speed-biker-rider-in-leather-on-black-racing-2570723945.jpg');
             background-size: cover;
-            background-position: center bottom; /* Ajusta para que la moto se vea bien */
+            background-position: center bottom;
             background-repeat: no-repeat;
             display: flex;
             flex-direction: column;
@@ -64,7 +64,7 @@
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
         }
 
-        .hero-banner::before { /* Capa de superposición para mejorar el contraste */
+        .hero-banner::before {
             content: '';
             position: absolute;
             top: 0;
@@ -79,7 +79,7 @@
             position: relative;
             z-index: 2;
             color: var(--color-text-light);
-            text-shadow: 0 0 15px rgba(0, 255, 255, 0.7); /* Resplandor cian para el texto */
+            text-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
         }
 
         .hero-banner h1 {
@@ -100,13 +100,13 @@
         /* Sección de Ondas Abstractas como separador */
         .abstract-wave-separator {
             width: 100%;
-            height: 150px; /* Altura del separador */
+            height: 150px;
             background-image: url('https://www.shutterstock.com/shutterstock/photos/2694667875/display_1500/stock-vector-abstract-futuristic-wave-of-glowing-green-and-teal-parallel-lines-on-a-pure-black-background-2694667875.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             margin: 50px 0;
-            box-shadow: inset 0 0 20px rgba(0, 255, 255, 0.3); /* Resplandor interno */
+            box-shadow: inset 0 0 20px rgba(0, 255, 255, 0.3);
         }
 
         /* Sección de Imágenes de Laboratorio */
@@ -118,7 +118,7 @@
             gap: 30px;
             margin: 60px 0;
             padding: 30px 0;
-            background-color: rgba(26, 26, 46, 0.7); /* Fondo para la sección */
+            background-color: rgba(26, 26, 46, 0.7);
             border-radius: 15px;
             box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
         }
@@ -132,7 +132,7 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
             transition: transform 0.4s ease, box-shadow 0.4s ease;
             cursor: pointer;
-            border: 2px solid transparent; /* Borde para el hover */
+            border: 2px solid transparent;
         }
 
         .lab-showcase-item:hover {
@@ -150,14 +150,14 @@
         #container {
             max-width: 1000px;
             width: 100%;
-            margin: 0 auto 50px auto; /* Ajuste de margen inferior */
-            background-color: rgba(26, 26, 46, 0.9); /* Fondo un poco más opaco para el contenido principal */
+            margin: 0 auto 50px auto;
+            background-color: rgba(26, 26, 46, 0.9);
             padding: 40px;
             border-radius: 20px;
-            box-shadow: 0 0 40px rgba(0, 0, 0, 0.6), 0 0 30px var(--color-border-glow); /* Doble sombra */
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.6), 0 0 30px var(--color-border-glow);
         }
 
-        /* Título Principal */
+        /* Título de Sección */
         .section-title {
             color: var(--color-text-light);
             font-size: 3em;
@@ -169,19 +169,19 @@
             font-weight: 900;
             position: relative;
             text-align: center;
-            width: 100%; /* Para centrar el after */
+            width: 100%;
         }
 
-        .section-title::after { /* Línea inferior del título con gradiente */
+        .section-title::after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
             width: 80%;
-            max-width: 400px; /* Ancho máximo para la línea */
+            max-width: 400px;
             height: 5px;
-            background: var(--color-accent-gradient-1); /* Gradiente para la línea */
+            background: var(--color-accent-gradient-1);
             border-radius: 5px;
         }
         
@@ -196,16 +196,17 @@
         /* Grid de Tarjetas */
         #project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adaptativo */
-            gap: 30px; /* Mayor separación */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
             padding: 10px;
         }
 
         /* Estilo Base de Tarjeta con Efectos Modernos */
         .project-card {
-            background-color: var(--color-card-bg);
-            border-radius: 18px; /* Bordes más redondeados */
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* Sombra más oscura para el fondo oscuro */
+            /* Eliminamos el background-color directo para usar la imagen de fondo */
+            background-color: var(--color-card-bg); /* Fondo con transparencia */
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
             padding: 30px;
             text-align: left;
             transition: 
@@ -217,9 +218,14 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            min-height: 180px; /* Mayor altura */
+            min-height: 180px;
             position: relative;
-            overflow: hidden; /* Para que el pseudo-elemento no se salga */
+            overflow: hidden;
+            
+            /* Nuevas propiedades para la imagen de fondo de las tarjetas */
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay; /* Mezcla la imagen con el color de fondo para mantener la legibilidad */
         }
 
         /* Pseudo-elemento para el borde con gradiente */
@@ -228,39 +234,39 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 8px; /* Ancho de la línea */
+            width: 8px;
             height: 100%;
-            background: var(--color-accent-gradient-3); /* Gradiente por defecto */
+            background: var(--color-accent-gradient-3);
             border-radius: 18px 0 0 18px;
             transition: background 0.4s ease;
         }
 
         /* EFECTO HOVER LLAMATIVO */
         .project-card:hover {
-            transform: translateY(-15px); /* Sube más */
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), /* Sombra más pronunciada */
-                        0 0 0 4px var(--color-border-glow); /* Borde sutil de luz */
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5),
+                        0 0 0 4px var(--color-border-glow);
             background-color: #383850; /* Un poco más claro en hover */
         }
          
         /* Efecto de Icono en Hover (Girar y Cambiar Color) */
         .project-card:hover .icon i {
-            transform: rotate(7deg) scale(1.1); /* Más giro y escala */
-            filter: brightness(1.2); /* Más brillante */
+            transform: rotate(7deg) scale(1.1);
+            filter: brightness(1.2);
         }
 
         /* Contenido de Tarjeta */
         .card-header {
             display: flex;
             justify-content: space-between;
-            align-items: center; /* Centrar verticalmente título e icono */
+            align-items: center;
             margin-bottom: 15px;
         }
 
         .project-card h2 {
             margin-top: 0;
             color: var(--color-text-light);
-            font-size: 1.6em; /* Título más grande */
+            font-size: 1.6em;
             font-weight: 800;
             line-height: 1.2;
             padding-right: 20px;
@@ -268,17 +274,16 @@
 
         .project-card p {
             color: var(--color-text-dim);
-            font-size: 1em; /* Descripción ligeramente más grande */
+            font-size: 1em;
             margin-bottom: 0;
             text-align: left;
             line-height: 1.6;
         }
          
-        /* Estilo de Icono */
+        /* Estilo de Icono - ¡AGRANDADO! */
         .project-card .icon {
-            font-size: 3.5em; /* Icono mucho más grande */
+            font-size: 4.5em; /* Icono mucho más grande */
             line-height: 1;
-            /* El color del icono se establecerá mediante un gradiente */
         }
         .project-card .icon i {
             -webkit-background-clip: text;
@@ -288,18 +293,42 @@
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
-        /* Colores específicos para tipos de enlaces (Línea lateral y Icono con Gradiente) */
+        /* Colores específicos para tipos de enlaces (Línea lateral, Icono con Gradiente y ¡FONDO DE TARJETA!) */
+        .project-card.ruta {
+            background-image: url('https://www.shutterstock.com/image-photo/vintage-motorcycle-isolated-on-black-600w-1279768345.jpg');
+            background-position: right center; /* Ajuste para que la moto se vea mejor */
+        }
         .project-card.ruta::before { background: var(--color-accent-gradient-2); }
         .project-card.ruta .icon i { background-image: var(--color-accent-gradient-2); }
 
-        .project-card.organizador::before { background: var(--color-accent-gradient-4); } /* Nuevo para organizador */
+        .project-card.organizador {
+            background-image: url('https://www.shutterstock.com/image-photo/old-brass-compass-isolated-white-600w-180373030.jpg');
+            background-position: left center; /* Ajuste para la brújula */
+        }
+        .project-card.organizador::before { background: var(--color-accent-gradient-4); }
         .project-card.organizador .icon i { background-image: var(--color-accent-gradient-4); }
 
+        .project-card.lab {
+            background-image: url('https://www.shutterstock.com/image-photo/flask-with-colourful-chemicals-on-laboratory-600w-420224212.jpg');
+            background-position: center;
+        }
         .project-card.lab::before { background: var(--color-accent-gradient-1); }
         .project-card.lab .icon i { background-image: var(--color-accent-gradient-1); }
 
-        .project-card.tools::before { background: var(--color-accent-gradient-3); }
-        .project-card.tools .icon i { background-image: var(--color-accent-gradient-3); }
+        .project-card.tools:nth-of-type(4) { /* Exportador de Datos Excel */
+            background-image: url('https://www.shutterstock.com/image-vector/excel-icon-logo-spreadsheet-button-600w-2098492040.jpg');
+            background-position: right bottom; /* Ajuste para el icono de Excel */
+        }
+        .project-card.tools:nth-of-type(4)::before { background: var(--color-accent-gradient-3); }
+        .project-card.tools:nth-of-type(4) .icon i { background-image: var(--color-accent-gradient-3); }
+
+        .project-card.tools:nth-of-type(5) { /* Convertidor XLS/XLSX a CSV */
+            background-image: url('https://www.shutterstock.com/image-vector/csv-file-icon-flat-design-600w-1869894472.jpg');
+            background-position: left bottom; /* Ajuste para el icono CSV */
+        }
+        .project-card.tools:nth-of-type(5)::before { background: var(--color-accent-gradient-3); }
+        .project-card.tools:nth-of-type(5) .icon i { background-image: var(--color-accent-gradient-3); }
+
 
         /* Media Query para tabletas y escritorios */
         @media (min-width: 768px) {
@@ -334,11 +363,11 @@
                 font-size: 1.4em;
             }
             .project-card .icon {
-                font-size: 2.8em;
+                font-size: 3.5em; /* Un poco más pequeño en móviles */
             }
             .lab-showcase-item {
-                width: 100%; /* Ocupa todo el ancho en móviles */
-                max-width: 350px; /* Ancho máximo para mantener proporción */
+                width: 100%;
+                max-width: 350px;
                 height: 180px;
             }
         }
