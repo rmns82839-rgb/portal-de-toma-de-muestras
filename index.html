@@ -11,7 +11,7 @@
             --color-dark-bg: #1A1A2E; /* Fondo principal muy oscuro */
             --color-card-bg: #2C2C40; /* Fondo de tarjeta un poco más claro */
             --color-text-light: #E0E0E0; /* Texto claro */
-            --color-text-dim: #A0A0B0;  /* Texto secundario atenuado */
+            --color-text-dim: #A0A0B0;  /* Texto secundario atenuado */
             --color-accent-gradient-1: linear-gradient(45deg, #FF6B6B, #FFD166); /* Rojo-Naranja */
             --color-accent-gradient-2: linear-gradient(45deg, #4ECDC4, #5bc0de); /* Turquesa-Azul */
             --color-accent-gradient-3: linear-gradient(45deg, #8A2BE2, #EE82EE); /* Violeta-Púrpura */
@@ -22,7 +22,16 @@
             font-family: 'Inter', sans-serif; /* Usamos una fuente moderna si está disponible */
             margin: 0;
             padding: 40px 20px;
-            background: var(--color-dark-bg); /* Fondo oscuro */
+            /* * ==========================================================
+            * CAMBIO #1: AGREGAR IMAGEN DE FONDO
+            * ==========================================================
+            */
+            background-image: url('https://www.shutterstock.com/shutterstock/photos/2433283773/display_1500/stock-vector-chemistry-glass-lab-flask-with-chemical-blue-liquid-science-beaker-on-chemical-formula-on-dark-2433283773.jpg');
+            background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
+            background-repeat: no-repeat; /* Evita que la imagen se repita */
+            background-attachment: fixed; /* Mantiene la imagen fija al hacer scroll */
+            background-position: center center; /* Centra la imagen */
+            
             text-align: center;
             color: var(--color-text-light);
             min-height: 100vh; /* Asegura que el fondo cubra toda la altura */
@@ -31,11 +40,16 @@
             align-items: center;
             justify-content: center;
         }
-        
+         
         #container {
             max-width: 1000px; /* Un poco más ancho para el nuevo diseño */
             width: 100%;
             margin: auto;
+            /* Se añade un fondo semitransparente al contenedor para mejorar la legibilidad sobre la imagen de fondo */
+            background-color: rgba(26, 26, 46, 0.85); /* var(--color-dark-bg) con transparencia */
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
         }
 
         /* Título Principal */
@@ -62,14 +76,14 @@
             background: var(--color-accent-gradient-1); /* Gradiente para la línea */
             border-radius: 5px;
         }
-        
+         
         #container > p {
             color: var(--color-text-dim);
             margin-bottom: 50px;
             font-size: 1.2em;
             font-weight: 300;
         }
-        
+         
         /* Grid de Tarjetas */
         #project-grid {
             display: grid;
@@ -85,8 +99,8 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* Sombra más oscura para el fondo oscuro */
             padding: 30px;
             text-align: left;
-            transition: 
-                transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+            transition: 
+                transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
                 box-shadow 0.4s ease,
                 background-color 0.4s ease;
             text-decoration: none;
@@ -119,7 +133,7 @@
                         0 0 0 4px rgba(255, 255, 255, 0.1); /* Borde sutil de luz */
             background-color: #383850; /* Un poco más claro en hover */
         }
-        
+         
         /* Efecto de Icono en Hover (Girar y Cambiar Color) */
         .project-card:hover .icon i {
             transform: rotate(7deg) scale(1.1); /* Más giro y escala */
@@ -150,7 +164,7 @@
             text-align: left;
             line-height: 1.6;
         }
-        
+         
         /* Estilo de Icono */
         .project-card .icon {
             font-size: 3.5em; /* Icono mucho más grande */
@@ -177,16 +191,11 @@
 
         .project-card.tools::before { background: var(--color-accent-gradient-3); }
         .project-card.tools .icon i { background-image: var(--color-accent-gradient-3); }
-
-
-        /* Mensaje de Enlace Pequeño */
-        .footer-note {
-            font-size: 0.9em; 
-            color: var(--color-text-dim); 
-            margin-top: 40px;
-            text-align: center;
-            display: block;
-        }
+        
+        /* * ==========================================================
+        * CAMBIO #3: SE ELIMINÓ LA CLASE .footer-note YA NO ES NECESARIA
+        * ==========================================================
+        */
 
         /* Media Query para tabletas y escritorios */
         @media (min-width: 768px) {
@@ -203,8 +212,8 @@
         <p>Selecciona la herramienta que necesitas para tu ruta:</p>
 
         <div id="project-grid">
-            
-            <a href="https://rmns82839-rgb.github.io/ruta_facil1.2/" target="_blank" class="project-card ruta">
+                        
+            <a href="https://rmns82839-rgb.github.io/ruta_facil1.2/" class="project-card ruta">
                 <div class="card-header">
                     <h2>RUTA FÁCIL 1.2 (App Principal)</h2>
                     <span class="icon"><i class="fa-solid fa-motorcycle"></i></span>
@@ -212,15 +221,15 @@
                 <p>Carga y visualiza las solicitudes de toma de muestras agrupadas por paciente y compañía.</p>
             </a>
 
-            <a href="https://rmns82839-rgb.github.io/organizador-de-ruta/" target="_blank" class="project-card organizador">
+            <a href="https://rmns82839-rgb.github.io/organizador-de-ruta/" class="project-card organizador">
                 <div class="card-header">
                     <h2>Organizador de Ruta</h2>
                     <span class="icon"><i class="fa-solid fa-compass"></i></span>
                 </div>
                 <p>Planifica y gestiona tu ruta de manera eficiente, optimizando tus tiempos de viaje.</p>
             </a>
-            
-            <a href="https://rmns82839-rgb.github.io/dataBaseExamenes/" target="_blank" class="project-card lab">
+                        
+            <a href="https://rmns82839-rgb.github.io/dataBaseExamenes/" class="project-card lab">
                 <div class="card-header">
                     <h2>Examenes De Laboratorio</h2>
                     <span class="icon"><i class="fa-solid fa-flask-vial"></i></span>
@@ -228,7 +237,7 @@
                 <p>Con una referencia interactiva para identificar rápidamente el tubo o tipo de muestra requerido.</p>
             </a>
 
-            <a href="https://rmns82839-rgb.github.io/exportador_de_datos_de_exel/" target="_blank" class="project-card tools">
+            <a href="https://rmns82839-rgb.github.io/exportador_de_datos_de_exel/" class="project-card tools">
                 <div class="card-header">
                     <h2>Exportador de Datos Excel</h2>
                     <span class="icon"><i class="fa-solid fa-file-excel"></i></span>
@@ -236,20 +245,17 @@
                 <p>Herramienta para exportar y gestionar datos desde archivos Excel.</p>
             </a>
 
-            <a href="https://rmns82839-rgb.github.io/convertidor_xlsl_a_csv2/" target="_blank" class="project-card tools">
+            <a href="https://rmns82839-rgb.github.io/convertidor_xlsl_a_csv2/" class="project-card tools">
                 <div class="card-header">
                     <h2>Convertidor XLS/XLSX a CSV</h2>
                     <span class="icon"><i class="fa-solid fa-table-columns"></i></span>
                 </div>
                 <p>Herramienta esencial para preparar tus archivos de ruta, transformando Excel a formato CSV.</p>
             </a>
-            
+                        
         </div>
 
-        <span class="footer-note">*Todos los enlaces a tus proyectos se abren en una nueva pestaña.</span>
-
-    </div>
+        </div>
 
 </body>
 </html>
-
