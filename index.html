@@ -109,7 +109,7 @@
             box-shadow: inset 0 0 20px rgba(0, 255, 255, 0.3);
         }
 
-        /* Sección de Imágenes de Laboratorio (ahora sin imágenes de fondo directas aquí) */
+        /* Sección de Imágenes de Laboratorio (mantengo los divs sin imágenes directas) */
         .lab-showcase {
             display: flex;
             justify-content: space-around;
@@ -133,7 +133,6 @@
             transition: transform 0.4s ease, box-shadow 0.4s ease;
             cursor: pointer;
             border: 2px solid transparent;
-            /* Si quieres un color base para estos, agrégalo */
             background-color: #3f3f50; 
         }
 
@@ -142,11 +141,6 @@
             box-shadow: 0 12px 30px rgba(0, 255, 255, 0.4);
             border-color: var(--color-border-glow);
         }
-
-        /* Eliminadas las imágenes de fondo directo para lab-showcase-item */
-        /* #lab-img-1 { background-image: url(''); } */
-        /* #lab-img-2 { background-image: url(''); } */
-
 
         /* Estilos del contenedor principal (para el grid de tarjetas) */
         #container {
@@ -225,7 +219,7 @@
             
             background-size: cover;
             background-position: center;
-            background-blend-mode: luminosity; /* o 'soft-light' */
+            background-blend-mode: luminosity; /* Modo de mezcla para opacidad */
             opacity: 0.9; /* Opacidad para todo el card (imagen + color) */
         }
 
@@ -299,7 +293,7 @@
         /* Ajustes de Color y FONDO DE IMAGEN Específicos        */
         /* ----------------------------------------------------- */
 
-        /* 1. RUTA FÁCIL 1.2 (Nueva imagen: Mapa GPS) */
+        /* 1. RUTA FÁCIL 1.2 (Mapa GPS) */
         .project-card.ruta {
             background-image: url('https://www.shutterstock.com/shutterstock/photos/2449090891/display_1500/stock-vector-city-map-navigation-gps-navigator-point-marker-icon-top-view-view-from-above-abstract-2449090891.jpg');
             background-position: center;
@@ -307,7 +301,7 @@
         .project-card.ruta::before { background: var(--color-accent-gradient-2); }
         .project-card.ruta .icon i { background-image: var(--color-accent-gradient-2); }
 
-        /* 2. ORGANIZADOR DE RUTA (Nueva imagen: Logo EXS) */
+        /* 2. ORGANIZADOR DE RUTA (Logo EXS) */
         .project-card.organizador {
             background-image: url('https://www.shutterstock.com/shutterstock/photos/2449203245/display_1500/stock-vector-exs-letter-logo-abstract-design-exs-unique-design-exs-2449203245.jpg');
             background-position: center;
@@ -315,10 +309,10 @@
         .project-card.organizador::before { background: var(--color-accent-gradient-4); }
         .project-card.organizador .icon i { background-image: var(--color-accent-gradient-4); }
 
-        /* 3. EXAMENES DE LABORATORIO (Texto Blanco - Sin imagen de fondo específica ahora) */
+        /* 3. EXAMENES DE LABORATORIO (Laboratorio 1 - Texto Blanco) */
         .project-card.lab {
-            /* background-image: url(''); <-- Eliminada */
-            background-position: center; /* Mantener por si se añade una imagen futura */
+            background-image: url('https://www.shutterstock.com/shutterstock/photos/2304132111/display_1500/stock-vector-chemical-laboratory-equipment-realistic-d-render-glass-tubes-set-flasks-on-book-scientific-2304132111.jpg'); 
+            background-position: right center;
         }
         .project-card.lab h2,
         .project-card.lab p {
@@ -327,15 +321,15 @@
         .project-card.lab::before { background: var(--color-accent-gradient-1); }
         .project-card.lab .icon i { background-image: var(--color-accent-gradient-1); }
 
-        /* 4. EXPORTADOR DE DATOS EXCEL (Sin imagen de fondo específica ahora) */
+        /* 4. EXPORTADOR DE DATOS EXCEL (Laboratorio 2) */
         .project-card.tools:nth-of-type(4) { 
-            /* background-image: url(''); <-- Eliminada */
-            background-position: center; /* Mantener por si se añade una imagen futura */
+            background-image: url('https://www.shutterstock.com/shutterstock/photos/1465451339/display_1500/stock-photo-science-equipment-in-chemistry-laboratory-with-microscope-test-glass-tube-and-flask-pharmacy-and-1465451339.jpg'); 
+            background-position: center;
         }
         .project-card.tools:nth-of-type(4)::before { background: var(--color-accent-gradient-3); }
         .project-card.tools:nth-of-type(4) .icon i { background-image: var(--color-accent-gradient-3); }
 
-        /* 5. CONVERTIDOR XLS/XLSX a CSV (Nueva imagen: Logo CSV - Texto Blanco) */
+        /* 5. CONVERTIDOR XLS/XLSX a CSV (Logo CSV - Texto Blanco) */
         .project-card.tools:nth-of-type(5) { 
             background-image: url('https://www.shutterstock.com/shutterstock/photos/2566301413/display_1500/stock-vector-vector-illustration-of-csv-file-in-dark-color-and-transparent-background-png-2566301413.jpg'); 
             background-position: center;
