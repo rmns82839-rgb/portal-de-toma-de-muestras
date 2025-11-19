@@ -11,8 +11,9 @@
         :root {
             --color-dark-bg: #1A1A2E; /* Fondo principal muy oscuro */
             --color-card-bg-base: #2C2C40; /* Fondo de tarjeta base */
-            --color-text-light: #E0E0E0; /* Texto claro */
-            --color-text-dim: #A0A0B0;  /* Texto secundario atenuado */
+            --color-text-light: #E0E0E0; /* Texto claro (usado generalmente) */
+            --color-text-dim: #A0A0B0;  /* Texto secundario atenuado (usado generalmente) */
+            --color-text-white: #FFFFFF; /* Blanco puro para contraste */
             --color-accent-gradient-1: linear-gradient(45deg, #FF6B6B, #FFD166); /* Rojo-Naranja */
             --color-accent-gradient-2: linear-gradient(45deg, #4ECDC4, #5bc0de); /* Turquesa-Azul */
             --color-accent-gradient-3: linear-gradient(45deg, #8A2BE2, #EE82EE); /* Violeta-Púrpura */
@@ -212,7 +213,7 @@
                 box-shadow 0.4s ease,
                 background-color 0.4s ease;
             text-decoration: none;
-            color: var(--color-text-light);
+            color: var(--color-text-light); /* Color de texto predeterminado */
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -222,14 +223,13 @@
             
             background-size: cover;
             background-position: center;
-            /* CLAVE: Usamos 'luminosity' o 'soft-light' para una mezcla sutil y opaca */
-            background-blend-mode: luminosity; /* o 'soft-light' */
-            opacity: 0.9; /* Opacidad para todo el card (imagen + color) */
+            background-blend-mode: luminosity;
+            opacity: 0.9; 
         }
 
         /* Efecto de Opacidad en Hover */
         .project-card:hover {
-            opacity: 1; /* Opacidad completa en hover */
+            opacity: 1; 
             transform: translateY(-15px);
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5),
                         0 0 0 4px var(--color-border-glow);
@@ -249,12 +249,6 @@
             transition: background 0.4s ease;
         }
 
-        /* Efecto de Icono en Hover (Girar y Cambiar Color) */
-        .project-card:hover .icon i {
-            transform: rotate(7deg) scale(1.1);
-            filter: brightness(1.2);
-        }
-
         /* Contenido de Tarjeta */
         .card-header {
             display: flex;
@@ -265,7 +259,7 @@
 
         .project-card h2 {
             margin-top: 0;
-            color: var(--color-text-light);
+            color: var(--color-text-light); /* Color predeterminado */
             font-size: 1.6em;
             font-weight: 800;
             line-height: 1.2;
@@ -273,7 +267,7 @@
         }
 
         .project-card p {
-            color: var(--color-text-dim);
+            color: var(--color-text-dim); /* Color predeterminado */
             font-size: 1em;
             margin-bottom: 0;
             text-align: left;
@@ -292,10 +286,18 @@
             text-fill-color: transparent;
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
+        /* Efecto de Icono en Hover */
+        .project-card:hover .icon i {
+            transform: rotate(7deg) scale(1.1);
+            filter: brightness(1.2);
+        }
 
-        /* Colores específicos para tipos de enlaces (Línea lateral, Icono con Gradiente y ¡FONDO DE TARJETA!) */
-        /* Usamos las imágenes de laboratorio y la de la moto como fondos de tarjeta */
 
+        /* ----------------------------------------------------- */
+        /* Ajustes de Color de Texto Específicos        */
+        /* ----------------------------------------------------- */
+
+        /* 1. RUTA FÁCIL 1.2 */
         .project-card.ruta {
             background-image: url('https://www.shutterstock.com/shutterstock/photos/2570723945/display_1500/stock-vector-motorcycle-on-road-with-headlight-racing-at-full-speed-biker-rider-in-leather-on-black-racing-2570723945.jpg');
             background-position: right center;
@@ -303,6 +305,7 @@
         .project-card.ruta::before { background: var(--color-accent-gradient-2); }
         .project-card.ruta .icon i { background-image: var(--color-accent-gradient-2); }
 
+        /* 2. ORGANIZADOR DE RUTA */
         .project-card.organizador {
             background-image: url('https://www.shutterstock.com/shutterstock/photos/2304132111/display_1500/stock-vector-chemical-laboratory-equipment-realistic-d-render-glass-tubes-set-flasks-on-book-scientific-2304132111.jpg');
             background-position: left center;
@@ -310,23 +313,34 @@
         .project-card.organizador::before { background: var(--color-accent-gradient-4); }
         .project-card.organizador .icon i { background-image: var(--color-accent-gradient-4); }
 
+        /* 3. EXAMENES DE LABORATORIO (TERCERO) - Texto Blanco */
         .project-card.lab {
             background-image: url('https://www.shutterstock.com/shutterstock/photos/1465451339/display_1500/stock-photo-science-equipment-in-chemistry-laboratory-with-microscope-test-glass-tube-and-flask-pharmacy-and-1465451339.jpg');
             background-position: center;
         }
+        .project-card.lab h2,
+        .project-card.lab p {
+            color: var(--color-text-white) !important; /* Texto Blanco Forzado */
+        }
         .project-card.lab::before { background: var(--color-accent-gradient-1); }
         .project-card.lab .icon i { background-image: var(--color-accent-gradient-1); }
 
-        .project-card.tools:nth-of-type(4) { /* Exportador de Datos Excel */
-            background-image: url('https://www.shutterstock.com/shutterstock/photos/2304132111/display_1500/stock-vector-chemical-laboratory-equipment-realistic-d-render-glass-tubes-set-flasks-on-book-scientific-2304132111.jpg'); /* Repetimos imagen de laboratorio */
+        /* 4. EXPORTADOR DE DATOS EXCEL */
+        .project-card.tools:nth-of-type(4) { 
+            background-image: url('https://www.shutterstock.com/shutterstock/photos/2304132111/display_1500/stock-vector-chemical-laboratory-equipment-realistic-d-render-glass-tubes-set-flasks-on-book-scientific-2304132111.jpg'); 
             background-position: right bottom;
         }
         .project-card.tools:nth-of-type(4)::before { background: var(--color-accent-gradient-3); }
         .project-card.tools:nth-of-type(4) .icon i { background-image: var(--color-accent-gradient-3); }
 
-        .project-card.tools:nth-of-type(5) { /* Convertidor XLS/XLSX a CSV */
-            background-image: url('https://www.shutterstock.com/shutterstock/photos/1465451339/display_1500/stock-photo-science-equipment-in-chemistry-laboratory-with-microscope-test-glass-tube-and-flask-pharmacy-and-1465451339.jpg'); /* Repetimos imagen de laboratorio */
+        /* 5. CONVERTIDOR XLS/XLSX a CSV (QUINTO) - Texto Blanco */
+        .project-card.tools:nth-of-type(5) { 
+            background-image: url('https://www.shutterstock.com/shutterstock/photos/1465451339/display_1500/stock-photo-science-equipment-in-chemistry-laboratory-with-microscope-test-glass-tube-and-flask-pharmacy-and-1465451339.jpg'); 
             background-position: left bottom;
+        }
+        .project-card.tools:nth-of-type(5) h2,
+        .project-card.tools:nth-of-type(5) p {
+            color: var(--color-text-white) !important; /* Texto Blanco Forzado */
         }
         .project-card.tools:nth-of-type(5)::before { background: var(--color-accent-gradient-3); }
         .project-card.tools:nth-of-type(5) .icon i { background-image: var(--color-accent-gradient-3); }
@@ -442,4 +456,3 @@
 
     </div> </body>
 </html>
-```http://googleusercontent.com/image_generation_content/2
