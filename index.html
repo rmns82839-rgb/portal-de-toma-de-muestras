@@ -10,10 +10,9 @@
         /* Paleta inspirada en la imagen: tonos oscuros y gradientes vibrantes */
         :root {
             --color-dark-bg: #1A1A2E; /* Fondo principal muy oscuro */
-            --color-card-bg-base: #2C2C40; /* Fondo de tarjeta base */
-            --color-text-light: #E0E0E0; /* Texto claro (usado generalmente) */
-            --color-text-dim: #A0A0B0;  /* Texto secundario atenuado (usado generalmente) */
-            --color-text-white: #FFFFFF; /* Blanco puro para contraste */
+            --color-card-bg: #2C2C40; /* Fondo de tarjeta un poco más claro */
+            --color-text-light: #E0E0E0; /* Texto claro */
+            --color-text-dim: #A0A0B0;  /* Texto secundario atenuado */
             --color-accent-gradient-1: linear-gradient(45deg, #FF6B6B, #FFD166); /* Rojo-Naranja */
             --color-accent-gradient-2: linear-gradient(45deg, #4ECDC4, #5bc0de); /* Turquesa-Azul */
             --color-accent-gradient-3: linear-gradient(45deg, #8A2BE2, #EE82EE); /* Violeta-Púrpura */
@@ -24,34 +23,35 @@
         body {
             font-family: 'Inter', sans-serif;
             margin: 0;
-            padding: 0;
+            padding: 0; /* Quitamos el padding global para el nuevo diseño */
             background: var(--color-dark-bg);
             color: var(--color-text-light);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
-            overflow-x: hidden;
+            justify-content: flex-start; /* Alineamos arriba para dar espacio al banner */
+            overflow-x: hidden; /* Evita desbordamiento horizontal */
         }
         
+        /* Contenedor principal para el contenido */
         #main-content-wrapper {
-            max-width: 1200px;
+            max-width: 1200px; /* Ancho máximo para el contenido principal */
             width: 100%;
             margin: 0 auto;
             padding: 20px;
             box-sizing: border-box;
             position: relative;
-            z-index: 10;
+            z-index: 10; /* Asegura que el contenido esté sobre fondos */
         }
 
         /* Banner Principal con la imagen de la moto */
         .hero-banner {
             width: 100%;
-            height: 450px;
+            height: 450px; /* Altura del banner */
             background-image: url('https://www.shutterstock.com/shutterstock/photos/2570723945/display_1500/stock-vector-motorcycle-on-road-with-headlight-racing-at-full-speed-biker-rider-in-leather-on-black-racing-2570723945.jpg');
             background-size: cover;
-            background-position: center bottom;
+            background-position: center bottom; /* Ajusta para que la moto se vea bien */
             background-repeat: no-repeat;
             display: flex;
             flex-direction: column;
@@ -64,7 +64,7 @@
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
         }
 
-        .hero-banner::before {
+        .hero-banner::before { /* Capa de superposición para mejorar el contraste */
             content: '';
             position: absolute;
             top: 0;
@@ -79,7 +79,7 @@
             position: relative;
             z-index: 2;
             color: var(--color-text-light);
-            text-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+            text-shadow: 0 0 15px rgba(0, 255, 255, 0.7); /* Resplandor cian para el texto */
         }
 
         .hero-banner h1 {
@@ -100,16 +100,16 @@
         /* Sección de Ondas Abstractas como separador */
         .abstract-wave-separator {
             width: 100%;
-            height: 150px;
+            height: 150px; /* Altura del separador */
             background-image: url('https://www.shutterstock.com/shutterstock/photos/2694667875/display_1500/stock-vector-abstract-futuristic-wave-of-glowing-green-and-teal-parallel-lines-on-a-pure-black-background-2694667875.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             margin: 50px 0;
-            box-shadow: inset 0 0 20px rgba(0, 255, 255, 0.3);
+            box-shadow: inset 0 0 20px rgba(0, 255, 255, 0.3); /* Resplandor interno */
         }
 
-        /* Sección de Imágenes de Laboratorio (mantengo los divs sin imágenes directas) */
+        /* Sección de Imágenes de Laboratorio */
         .lab-showcase {
             display: flex;
             justify-content: space-around;
@@ -118,7 +118,7 @@
             gap: 30px;
             margin: 60px 0;
             padding: 30px 0;
-            background-color: rgba(26, 26, 46, 0.7);
+            background-color: rgba(26, 26, 46, 0.7); /* Fondo para la sección */
             border-radius: 15px;
             box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
         }
@@ -132,8 +132,7 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
             transition: transform 0.4s ease, box-shadow 0.4s ease;
             cursor: pointer;
-            border: 2px solid transparent;
-            background-color: #3f3f50; 
+            border: 2px solid transparent; /* Borde para el hover */
         }
 
         .lab-showcase-item:hover {
@@ -142,18 +141,23 @@
             border-color: var(--color-border-glow);
         }
 
+        /* Imágenes específicas para cada item del showcase */
+        #lab-img-1 { background-image: url('https://www.shutterstock.com/shutterstock/photos/2304132111/display_1500/stock-vector-chemical-laboratory-equipment-realistic-d-render-glass-tubes-set-flasks-on-book-scientific-2304132111.jpg'); }
+        #lab-img-2 { background-image: url('https://www.shutterstock.com/shutterstock/photos/1465451339/display_1500/stock-photo-science-equipment-in-chemistry-laboratory-with-microscope-test-glass-tube-and-flask-pharmacy-and-1465451339.jpg'); }
+
+
         /* Estilos del contenedor principal (para el grid de tarjetas) */
         #container {
             max-width: 1000px;
             width: 100%;
-            margin: 0 auto 50px auto;
-            background-color: rgba(26, 26, 46, 0.9);
+            margin: 0 auto 50px auto; /* Ajuste de margen inferior */
+            background-color: rgba(26, 26, 46, 0.9); /* Fondo un poco más opaco para el contenido principal */
             padding: 40px;
             border-radius: 20px;
-            box-shadow: 0 0 40px rgba(0, 0, 0, 0.6), 0 0 30px var(--color-border-glow);
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.6), 0 0 30px var(--color-border-glow); /* Doble sombra */
         }
 
-        /* Título de Sección */
+        /* Título Principal */
         .section-title {
             color: var(--color-text-light);
             font-size: 3em;
@@ -165,19 +169,19 @@
             font-weight: 900;
             position: relative;
             text-align: center;
-            width: 100%;
+            width: 100%; /* Para centrar el after */
         }
 
-        .section-title::after {
+        .section-title::after { /* Línea inferior del título con gradiente */
             content: '';
             position: absolute;
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
             width: 80%;
-            max-width: 400px;
+            max-width: 400px; /* Ancho máximo para la línea */
             height: 5px;
-            background: var(--color-accent-gradient-1);
+            background: var(--color-accent-gradient-1); /* Gradiente para la línea */
             border-radius: 5px;
         }
         
@@ -192,16 +196,16 @@
         /* Grid de Tarjetas */
         #project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adaptativo */
+            gap: 30px; /* Mayor separación */
             padding: 10px;
         }
 
         /* Estilo Base de Tarjeta con Efectos Modernos */
         .project-card {
-            background-color: var(--color-card-bg-base); /* Base opaca para la mezcla */
-            border-radius: 18px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            background-color: var(--color-card-bg);
+            border-radius: 18px; /* Bordes más redondeados */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* Sombra más oscura para el fondo oscuro */
             padding: 30px;
             text-align: left;
             transition: 
@@ -209,71 +213,72 @@
                 box-shadow 0.4s ease,
                 background-color 0.4s ease;
             text-decoration: none;
-            color: var(--color-text-light); /* Color de texto predeterminado */
+            color: var(--color-text-light);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            min-height: 180px;
+            min-height: 180px; /* Mayor altura */
             position: relative;
-            overflow: hidden;
-            
-            background-size: cover;
-            background-position: center;
-            background-blend-mode: luminosity; /* Modo de mezcla para opacidad */
-            opacity: 0.9; /* Opacidad para todo el card (imagen + color) */
+            overflow: hidden; /* Para que el pseudo-elemento no se salga */
         }
 
-        /* Efecto de Opacidad en Hover */
-        .project-card:hover {
-            opacity: 1; /* Opacidad completa en hover */
-            transform: translateY(-15px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5),
-                        0 0 0 4px var(--color-border-glow);
-            background-color: #383850; 
-        }
-        
         /* Pseudo-elemento para el borde con gradiente */
         .project-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            width: 8px;
+            width: 8px; /* Ancho de la línea */
             height: 100%;
-            background: var(--color-accent-gradient-3);
+            background: var(--color-accent-gradient-3); /* Gradiente por defecto */
             border-radius: 18px 0 0 18px;
             transition: background 0.4s ease;
+        }
+
+        /* EFECTO HOVER LLAMATIVO */
+        .project-card:hover {
+            transform: translateY(-15px); /* Sube más */
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), /* Sombra más pronunciada */
+                        0 0 0 4px var(--color-border-glow); /* Borde sutil de luz */
+            background-color: #383850; /* Un poco más claro en hover */
+        }
+         
+        /* Efecto de Icono en Hover (Girar y Cambiar Color) */
+        .project-card:hover .icon i {
+            transform: rotate(7deg) scale(1.1); /* Más giro y escala */
+            filter: brightness(1.2); /* Más brillante */
         }
 
         /* Contenido de Tarjeta */
         .card-header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: center; /* Centrar verticalmente título e icono */
             margin-bottom: 15px;
         }
 
         .project-card h2 {
             margin-top: 0;
-            color: var(--color-text-light); /* Color predeterminado */
-            font-size: 1.6em;
+            color: var(--color-text-light);
+            font-size: 1.6em; /* Título más grande */
             font-weight: 800;
             line-height: 1.2;
             padding-right: 20px;
         }
 
         .project-card p {
-            color: var(--color-text-dim); /* Color predeterminado */
-            font-size: 1em;
+            color: var(--color-text-dim);
+            font-size: 1em; /* Descripción ligeramente más grande */
             margin-bottom: 0;
             text-align: left;
             line-height: 1.6;
         }
          
-        /* Estilo de Icono - ¡AGRANDADO! */
+        /* Estilo de Icono */
         .project-card .icon {
-            font-size: 4.5em; 
+            font-size: 3.5em; /* Icono mucho más grande */
             line-height: 1;
+            /* El color del icono se establecerá mediante un gradiente */
         }
         .project-card .icon i {
             -webkit-background-clip: text;
@@ -282,65 +287,19 @@
             text-fill-color: transparent;
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
-        /* Efecto de Icono en Hover */
-        .project-card:hover .icon i {
-            transform: rotate(7deg) scale(1.1);
-            filter: brightness(1.2);
-        }
 
-
-        /* ----------------------------------------------------- */
-        /* Ajustes de Color y FONDO DE IMAGEN Específicos        */
-        /* ----------------------------------------------------- */
-
-        /* 1. RUTA FÁCIL 1.2 (Mapa GPS) */
-        .project-card.ruta {
-            background-image: url('https://www.shutterstock.com/shutterstock/photos/2449090891/display_1500/stock-vector-city-map-navigation-gps-navigator-point-marker-icon-top-view-view-from-above-abstract-2449090891.jpg');
-            background-position: center;
-        }
+        /* Colores específicos para tipos de enlaces (Línea lateral y Icono con Gradiente) */
         .project-card.ruta::before { background: var(--color-accent-gradient-2); }
         .project-card.ruta .icon i { background-image: var(--color-accent-gradient-2); }
 
-        /* 2. ORGANIZADOR DE RUTA (Logo EXS) */
-        .project-card.organizador {
-            background-image: url('https://www.shutterstock.com/shutterstock/photos/2449203245/display_1500/stock-vector-exs-letter-logo-abstract-design-exs-unique-design-exs-2449203245.jpg');
-            background-position: center;
-        }
-        .project-card.organizador::before { background: var(--color-accent-gradient-4); }
+        .project-card.organizador::before { background: var(--color-accent-gradient-4); } /* Nuevo para organizador */
         .project-card.organizador .icon i { background-image: var(--color-accent-gradient-4); }
 
-        /* 3. EXAMENES DE LABORATORIO (Laboratorio 1 - Texto Blanco) */
-        .project-card.lab {
-            background-image: url('https://www.shutterstock.com/shutterstock/photos/2304132111/display_1500/stock-vector-chemical-laboratory-equipment-realistic-d-render-glass-tubes-set-flasks-on-book-scientific-2304132111.jpg'); 
-            background-position: right center;
-        }
-        .project-card.lab h2,
-        .project-card.lab p {
-            color: var(--color-text-white) !important; /* Texto Blanco Forzado */
-        }
         .project-card.lab::before { background: var(--color-accent-gradient-1); }
         .project-card.lab .icon i { background-image: var(--color-accent-gradient-1); }
 
-        /* 4. EXPORTADOR DE DATOS EXCEL (Laboratorio 2) */
-        .project-card.tools:nth-of-type(4) { 
-            background-image: url('https://www.shutterstock.com/shutterstock/photos/1465451339/display_1500/stock-photo-science-equipment-in-chemistry-laboratory-with-microscope-test-glass-tube-and-flask-pharmacy-and-1465451339.jpg'); 
-            background-position: center;
-        }
-        .project-card.tools:nth-of-type(4)::before { background: var(--color-accent-gradient-3); }
-        .project-card.tools:nth-of-type(4) .icon i { background-image: var(--color-accent-gradient-3); }
-
-        /* 5. CONVERTIDOR XLS/XLSX a CSV (Logo CSV - Texto Blanco) */
-        .project-card.tools:nth-of-type(5) { 
-            background-image: url('https://www.shutterstock.com/shutterstock/photos/2566301413/display_1500/stock-vector-vector-illustration-of-csv-file-in-dark-color-and-transparent-background-png-2566301413.jpg'); 
-            background-position: center;
-        }
-        .project-card.tools:nth-of-type(5) h2,
-        .project-card.tools:nth-of-type(5) p {
-            color: var(--color-text-white) !important; /* Texto Blanco Forzado */
-        }
-        .project-card.tools:nth-of-type(5)::before { background: var(--color-accent-gradient-3); }
-        .project-card.tools:nth-of-type(5) .icon i { background-image: var(--color-accent-gradient-3); }
-
+        .project-card.tools::before { background: var(--color-accent-gradient-3); }
+        .project-card.tools .icon i { background-image: var(--color-accent-gradient-3); }
 
         /* Media Query para tabletas y escritorios */
         @media (min-width: 768px) {
@@ -375,11 +334,11 @@
                 font-size: 1.4em;
             }
             .project-card .icon {
-                font-size: 3.5em;
+                font-size: 2.8em;
             }
             .lab-showcase-item {
-                width: 100%;
-                max-width: 350px;
+                width: 100%; /* Ocupa todo el ancho en móviles */
+                max-width: 350px; /* Ancho máximo para mantener proporción */
                 height: 180px;
             }
         }
